@@ -9,7 +9,10 @@ const SessionNav = TabNavigator({
   Home: { screen: SessionsScreen },
   Profile: { screen: ProfileScreen },
   Settings: { screen: SettingsScreen }
+},{
+  tabBarPosition: 'bottom'
 })
+
 
 const Nav = StackNavigator({
   Main: { screen: SessionNav },
