@@ -11,11 +11,13 @@ import {
   Text,
   View
 } from 'react-native';
+import { ProfileScreen } from './src/screens/ProfileScreen'
 
 export default class sessions extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <ProfileScreen />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
