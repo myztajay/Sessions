@@ -3,6 +3,9 @@ import { View, Text } from 'react-native';
 
 
 class SessionScreen extends Component{
+  static navigationOptions = {
+  title: 'Fake Session'
+  }
   render(){
     return(
       <View>

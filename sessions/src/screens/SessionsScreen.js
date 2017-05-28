@@ -1,5 +1,5 @@
 import  React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
 
 class SessionsScreen extends Component{
@@ -9,7 +9,17 @@ class SessionsScreen extends Component{
   render(){
     return(
       <View>
-        <Text> SessionsScreen </Text>
+      <Button
+      onPress={() => this.props.navigation.navigate('NewSession')}
+      title="Create New Session"
+      />
+
+      <Button
+      onPress={() => this.props.navigation.navigate('Session')}
+      title="Fake Session"
+      />
+      
+      <Text> SessionsScreen </Text>
       </View>
     )
   }
