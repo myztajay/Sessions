@@ -3,6 +3,9 @@
 A React-Native based App that will allow a user to create study sessions and alert other users within a geographical radius of that session. 
 
 
+![alt text](https://github.com/myztajay/Sessions/blob/master/Mock_up.jpg?raw=true "Logo Title Text 1")
+
+
 Technologies:
 - React
 - React-Native( for Android/IOS)
