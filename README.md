@@ -23,5 +23,5 @@ Install:
 3. ```react-native run-android```
 
 Requirements:
-At the moment we are using Genymotion for testing. 
+- At the moment we are using Genymotion for testing, but because it react-native you theoretically will have the same App in IOS. Except for customizations that IOS doesn't allow that android does. Ex coloring nav menus.
 - Android SDK
