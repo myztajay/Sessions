@@ -12,6 +12,16 @@ Technologies:
 - Firebase
 - Twilio 
 
+
+Install:
+1. Run ```npm install```
+2. Create a file in the main session directory (with index.android.js and index.ios.js) called "Firebase.js"
+- import firebase
+- add private keys for firebase
+- ```const Firebase = firebase.initializeApp(config)```
+- ```export { Firebase }```
+3. ```react-native run-android```
+
 Requirements:
 At the moment we are using Genymotion for testing. 
 - Android SDK
