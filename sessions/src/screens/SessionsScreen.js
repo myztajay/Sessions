@@ -1,5 +1,6 @@
 import  React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { Firebase } from '../../Firebase'
 import { CardSection, Card } from '../components/common'
 
 
@@ -7,6 +8,7 @@ class SessionsScreen extends Component{
   static navigationOptions = {
   title: 'Home'
   }
+
   render(){
     return(
       <View>
