@@ -13,7 +13,7 @@ const Input = ({ label, underlineColorAndroid, value, onChangeText, placeholder,
         style={styles.inputStyle}
         value={value}
         onChangeText={onChangeText}
-        style={{width:200, color: '#FFFFFF'}}
+        style={{width:200, color: '#000000'}}
       />
     </View>
   )
@@ -21,7 +21,7 @@ const Input = ({ label, underlineColorAndroid, value, onChangeText, placeholder,
 
 const styles = {
   inputStyle:{
-    color: '#FFFFFF',
+    color: '#000000',
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 18,
@@ -33,7 +33,7 @@ const styles = {
   },
   labelStyle:{
     fontSize: 18,
-    color:'#FFF',
+    color:'#000000',
 
     alignSelf: 'center'
 

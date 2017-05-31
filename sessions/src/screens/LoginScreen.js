@@ -1,7 +1,8 @@
 import  React, { Component } from 'react';
 import { firebase } from 'firebase'
 import { View, Text, Button} from 'react-native';
-import { Firebase, auth, googleAuthProvider } from '../../Firebase'
+import { Input, CardSectionVertical, Card } from '../components/common'
+import { Firebase, auth, googleAuthProvider } from '../../Firebase';
 
 
 class LoginScreen extends Component{
@@ -11,14 +12,20 @@ class LoginScreen extends Component{
   render(){
     return(
       <View>
-        <Text> Login Screen </Text>
-        <Button
-        title='Login'
-        onPress= {()=>}
-        ></Button>
+        <CardSectionVertical>
+          <Input
+            label='Email'
+          />
+          <Input
+            label="Password"
+            secureTextEntry={true}
+          />
+          </CardSectionVertical>
+      
       </View>
     )
   }
 }
+
 
 export { LoginScreen };

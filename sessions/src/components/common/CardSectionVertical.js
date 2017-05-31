@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 
 
-const CardSection = (props) =>{
+const CardSectionVertical = (props) =>{
   return(
     <View style={style.containerStyle}>
       {props.children}
@@ -17,11 +17,11 @@ const style = {
     padding: 5,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
     borderColor: '#ddd',
     position: 'relative'
   }
 }
 
 
-export { CardSection }
+export { CardSectionVertical }
