@@ -8,6 +8,18 @@ class SessionsScreen extends Component{
   static navigationOptions = {
   title: 'Home'
   }
+  constructor(props){
+    super(props)
+    this.state = { sessions: '' }
+    this.sessionsRef = Firebase.database().ref('/sessions')
+    }
+
+  componentWillMount(){
+    this.sessionsRef.once('value', (snapshot) => {
+      this.setState({ sessions: snapshot.val() });
+    })
+  }
+
 
   render(){
     return(
