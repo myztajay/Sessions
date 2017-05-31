@@ -5,9 +5,9 @@ import { Input, CardSectionVertical, Card } from '../components/common'
 import { Firebase } from '../../Firebase';
 
 
-class LoginScreen extends Component{
+class RegisterScreen extends Component{
   static navigationOptions = {
-  title: 'Login'
+  title: 'Register'
   }
 
   constructor(props){
@@ -15,24 +15,24 @@ class LoginScreen extends Component{
     this.state = {
       email: '',
       password: '',
-      error: '',
-      authenticated: false
+      confirmPassword: '',
+      error: ''
     }
   }
 
-  onLoginButtonPress = () => {
-    Firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    .then(()=>{
-      this.setState({ authenticated: true })
-      this.props.navigation.navigate('Main')
-    })
-    .catch((error)=>{
-      this.setState({ error: error.message })
-    })
-  }
-
-  onRegisterButtonPress = () => {
-    this.props.navigation.navigate('Register')
+  onButtonPress = () => {
+    if(this.state.confirmPassword !== this.state.password){
+      this.setState({error: 'Your passwords do not match'})
+    }
+    else{
+      Firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(()=>{
+        this.props.navigation.navigate('Login')
+      })
+      .catch((error)=>{
+        this.setState({ error: error.message })
+      })
+    }
   }
 
   render(){
@@ -48,14 +48,15 @@ class LoginScreen extends Component{
             secureTextEntry={true}
             onChangeText={(password) => this.setState({ password })}
           />
+          <Input
+            label="Confirm Password"
+            secureTextEntry={true}
+            onChangeText={(confirmPassword) => this.setState({ confirmPassword })}
+          />
           <Text>{this.state.error}</Text>
           <Button
-            title='Login'
-            onPress={this.onLoginButtonPress.bind(this)}
-          />
-          <Button
-            title='Register'
-            onPress={this.onRegisterButtonPress.bind(this)}
+            title='Signup'
+            onPress={this.onButtonPress.bind(this)}
           />
         </CardSectionVertical>
       </View>
@@ -63,4 +64,4 @@ class LoginScreen extends Component{
   }
 }
 
-export { LoginScreen };
+export { RegisterScreen };
