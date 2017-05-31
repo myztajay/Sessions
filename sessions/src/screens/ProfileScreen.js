@@ -5,6 +5,7 @@ class ProfileScreen extends Component{
   static navigationOptions = {
   title: 'Profile'
   }
+
   render(){
     return(
       <View>

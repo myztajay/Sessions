@@ -13,7 +13,8 @@ class SessionsScreen extends Component{
     return(
       <View>
       <Text> SessionsScreen </Text>
-      <Button onPress={() => this.props.navigation.navigate('NewSession')}
+      <Button
+      onPress={() => this.props.navigation.navigate('NewSession')}
       title='Create New Session'
       >
       </Button>
