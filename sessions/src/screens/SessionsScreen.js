@@ -1,13 +1,16 @@
 import  React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TouchableOpacity, Button, ScrollView } from 'react-native';
+import map from 'lodash/map';
 import { Firebase } from '../../Firebase'
 import { CardSection, Card } from '../components/common'
+import { SessionCard } from '../components/SessionCard'
 
 
 class SessionsScreen extends Component{
   static navigationOptions = {
   title: 'Home'
   }
+
   constructor(props){
     super(props)
     this.state = { sessions: '' }
@@ -20,34 +23,30 @@ class SessionsScreen extends Component{
     })
   }
 
+  renderSession(){
+    return map(this.state.sessions, (session, key)=>{
+      return (<SessionCard
+              nav={ this.props.navigation }
+              key={session.name}
+              name={session.name}
+              description={session.description}
+              />)
+
+      console.log(session)
+    })
+  }
+
   render(){
     return(
       <View>
-      <Text> SessionsScreen </Text>
-      <Button
-      onPress={() => this.props.navigation.navigate('NewSession')}
-      title='Create New Session'
-      >
-      </Button>
-
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Session')}>
-      <CardSection>
-        <Text>Fake Session 1</Text>
-      </CardSection>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Session')}>
-      <CardSection>
-        <Text>Fake Session 2</Text>
-      </CardSection>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('Session')}>
-      <CardSection>
-        <Text>Fake Session 3</Text>
-      </CardSection>
-      </TouchableOpacity>
-
+        <Text> SessionsScreen</Text>
+        <Button
+        onPress={() => this.props.navigation.navigate('NewSession')}
+        title='Create New Session'
+        />
+        <ScrollView>
+          {this.renderSession()}
+        </ScrollView>
       </View>
     )
   }
