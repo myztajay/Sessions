@@ -15,6 +15,7 @@ class NewSessionScreen extends Component{
       error: ''
     }
   }
+
   onCreateButtonPress(){
     Firebase.database().ref()
       .child('sessions')

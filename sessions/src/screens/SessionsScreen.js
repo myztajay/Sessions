@@ -20,7 +20,6 @@ class SessionsScreen extends Component{
     })
   }
 
-
   render(){
     return(
       <View>
