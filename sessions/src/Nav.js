@@ -6,21 +6,25 @@ import { SettingsScreen } from './screens/SettingsScreen';
 import { NewSessionScreen } from './screens/NewSessionScreen';
 import { LoginScreen } from './screens/LoginScreen';
 import { RegisterScreen } from './screens/RegisterScreen';
+import { SplashScreen } from './screens/SplashScreen';
+
 
 const SessionNav = TabNavigator({
   Home: { screen: SessionsScreen },
   Profile: { screen: ProfileScreen },
   Settings: { screen: SettingsScreen },
-  Login: { screen:LoginScreen},
-  Register: { screen:RegisterScreen},
 },{
   tabBarPosition: 'bottom'
 })
 
 const Nav = StackNavigator({
-  Main: { screen: SessionNav },
-  NewSession: { screen: NewSessionScreen },
-  Session: { screen: SessionScreen }
+    Splash: { screen: SplashScreen },
+    Main: { screen: SessionNav },
+    NewSession: { screen: NewSessionScreen },
+    Session: { screen: SessionScreen },
+    Login: { screen: LoginScreen},
+    Register: { screen: RegisterScreen}
 })
 
-export { Nav };
+
+export { Nav};

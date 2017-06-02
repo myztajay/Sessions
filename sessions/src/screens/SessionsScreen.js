@@ -27,12 +27,10 @@ class SessionsScreen extends Component{
     return map(this.state.sessions, (session, key)=>{
       return (<SessionCard
               nav={ this.props.navigation }
-              key={session.name}
-              name={session.name}
-              description={session.description}
+              key={ session.name }
+              name={ session.name }
+              description={ session.description }
               />)
-
-      console.log(session)
     })
   }
 
