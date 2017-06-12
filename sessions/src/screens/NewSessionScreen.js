@@ -12,15 +12,23 @@ class NewSessionScreen extends Component{
     this.state = {
       name: '',
       description: '',
-      error: ''
+      error: '',
+      user:''
     }
   }
 
   onCreateButtonPress(){
+    const user = Firebase.auth().currentUser;
+    console.log(user.email)
+    if (user){
     Firebase.database().ref()
       .child('sessions')
-      .push({name: this.state.name, description: this.state.description})
-      this.props.navigation.navigate('Main')
+      .push({name: this.state.name, description: this.state.description, creator: user.email })
+
+    this.props.navigation.navigate('Main')}
+    else{
+      this.props.navigation.navigate('Login')
+    }
   }
 
   render(){

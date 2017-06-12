@@ -30,6 +30,7 @@ class SessionsScreen extends Component{
               key={ session.name }
               name={ session.name }
               description={ session.description }
+              creator={ session.creator }
               />)
     })
   }
