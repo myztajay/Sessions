@@ -18,7 +18,7 @@ const SessionNav = TabNavigator({
 })
 
 const Nav = StackNavigator({
-    Splash: { screen: SplashScreen },
+    // Splash: { screen: SplashScreen },
     Main: { screen: SessionNav },
     NewSession: { screen: NewSessionScreen },
     Session: { screen: SessionScreen },
@@ -27,4 +27,4 @@ const Nav = StackNavigator({
 })
 
 
-export { Nav};
+export { Nav };
