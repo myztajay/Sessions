@@ -5,7 +5,7 @@ import { Card, CardSection } from './common'
 const SessionCard = ({ nav, name, description, creator }) =>{
   return(
     <View>
-      <TouchableOpacity onPress={() => nav.navigate('Session')}>
+      <TouchableOpacity onPress={() => nav.navigate('Session', { name, description, creator })}>
         <CardSection>
           <Text>{name}</Text>
           <Text>{description}</Text>
