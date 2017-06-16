@@ -1,16 +1,20 @@
 import  React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { CardSectionVertical } from '../components/common';
 
 
 class SessionScreen extends Component{
-  static navigationOptions = {
-  title: 'Fake Session'
+  static navigationOptions = ( {navigation} )=> {
+  title: 'navigation.state.params.name'
   }
   render(){
+    const { name, description, creator } = this.props.navigation.state.params
     return(
-      <View>
-        <Text> Session Screen </Text>
-      </View>
+      <CardSectionVertical>
+        <Text> {name} </Text>
+        <Text> {description} </Text>
+        <Text> {creator} </Text>
+      </CardSectionVertical>
     )
   }
 }
