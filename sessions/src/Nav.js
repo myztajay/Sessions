@@ -11,14 +11,14 @@ import { SplashScreen } from './screens/SplashScreen';
 
 const SessionNav = TabNavigator({
   Home: { screen: SessionsScreen },
-  Profile: { screen: ProfileScreen },
+  // Profile: { screen: ProfileScreen },
   Settings: { screen: SettingsScreen },
 },{
   tabBarPosition: 'bottom'
 })
 
 const Nav = StackNavigator({
-    // Splash: { screen: SplashScreen },
+    Splash: { screen: SplashScreen },
     Main: { screen: SessionNav },
     NewSession: { screen: NewSessionScreen },
     Session: { screen: SessionScreen },
