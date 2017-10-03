@@ -26,6 +26,17 @@ class RegisterScreen extends Component{
     }
     else{
       Firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((authData)=>{
+        // If user was succesful, make an entry the database.
+        Firebase.database().ref().child("users").child(authData.uid).set({
+          MilesAway: 15,
+          Topics:{
+            "react": true,
+            "angular": true,
+            "node": true
+          }
+        })
+      })
       .then(()=>{
         this.props.navigation.navigate('Login')
       })
