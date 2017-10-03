@@ -1,5 +1,6 @@
 import  React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { CardSection } from '../components/common'
 
 
 class SettingsScreen extends Component{
@@ -9,7 +10,18 @@ class SettingsScreen extends Component{
   render(){
     return(
       <View>
-        <Text> SettingsScreen </Text>
+        <CardSection>
+          <Text> Miles Away </Text>
+        </CardSection>
+        <CardSection>
+          <Text> Reactjs </Text>
+        </CardSection>
+        <CardSection>
+          <Text> Angularjs </Text>
+        </CardSection>
+        <CardSection>
+          <Text> Nodejs </Text>
+        </CardSection>
       </View>
     )
   }
