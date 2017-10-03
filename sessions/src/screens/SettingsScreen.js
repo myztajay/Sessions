@@ -7,6 +7,17 @@ class SettingsScreen extends Component{
   static navigationOptions = {
   title: 'Settings'
   }
+  constructor(prop){
+    super(prop)
+    this.state = {
+    user: '',
+    milesAway: '',
+    topic: {}
+    }
+  }
+  
+  
+  //firebase.write.currentUser.node(user)
   render(){
     return(
       <View>
