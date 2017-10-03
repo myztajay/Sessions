@@ -29,11 +29,11 @@ class RegisterScreen extends Component{
       .then((authData)=>{
         // If user was succesful, make an entry the database.
         Firebase.database().ref().child("users").child(authData.uid).set({
-          MilesAway: 15,
-          Topics:{
-            "react": true,
-            "angular": true,
-            "node": true
+          milesAway: 15,
+          topics:{
+            reactjs: true,
+            angularjs: true,
+            nodejs: true
           }
         })
       })
