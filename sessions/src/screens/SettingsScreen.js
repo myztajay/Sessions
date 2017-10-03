@@ -1,5 +1,5 @@
 import  React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { CardSection } from '../components/common'
 import { Firebase } from '../../Firebase'
 
@@ -10,29 +10,37 @@ class SettingsScreen extends Component{
   }
   constructor(prop){
     super(prop)
-    this.state = {
-    user: {
-      milesAway: '',
-      topics: {
-        angularjs: '',
-        reactjs: '',
-        nodejs: ''
+      this.state = {
+      user: {
+        milesAway: '',
+        topics: {
+          angularjs: '',
+          reactjs: '',
+          nodejs: ''
+        }
       }
-    },
     }
   }
   
   componentWillMount(){
     const user = Firebase.auth().currentUser;
     Firebase.database().ref(`/users/${user.uid}`).once('value', (snapshot) =>{
-      console.log(snapshot.val())
-      this.setState({ user: snapshot.val() })
-      console.log(this.state.user.milesAway)
-      console.log(this.state.user.topics)
-      console.log(this.state.user.topics.angularjs)
-      
+      this.setState({ user: snapshot.val() })  
     })
   }
+  
+  onSaveButtonPress(){
+    const user = Firebase.auth().currentUser;
+    Firebase.database().ref().child("users").child(user.uid).set({
+      milesAway: 15,
+      topics:{
+        reactjs: this.state.topics.reactjs,
+        angularjs: this.state.topics.angularjs,
+        nodejs: this.state.topics.nodejs
+      }
+    })
+  }
+  
   
   render(){
     return(
@@ -49,7 +57,12 @@ class SettingsScreen extends Component{
         <CardSection>
           <Text> node: {String(this.state.user.topics.nodejs)} </Text>
         </CardSection>
+        <Button 
+          title="Save Settings" 
+          onPress={this.onSaveButtonPress.bind(this)}
+        />
       </View>
+      
     )
   }
 }
