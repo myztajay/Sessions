@@ -1,5 +1,5 @@
 import  React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Checkbox } from 'react-native';
 import { CardSection } from '../components/common'
 import { Firebase } from '../../Firebase'
 
@@ -34,9 +34,9 @@ class SettingsScreen extends Component{
     Firebase.database().ref().child("users").child(user.uid).set({
       milesAway: 15,
       topics:{
-        reactjs: this.state.topics.reactjs,
-        angularjs: this.state.topics.angularjs,
-        nodejs: this.state.topics.nodejs
+        angularjs: this.state.user.topics.angularjs,
+        reactjs: this.state.user.topics.reactjs,
+        nodejs: this.state.user.topics.nodejs
       }
     })
   }
