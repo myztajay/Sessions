@@ -18,7 +18,7 @@ class NewSessionScreen extends Component{
       location: '',
       isLocation: false,
       googlePlace: '',
-      topic: ''
+      topic: 'angularjs'
     }
   }
 
