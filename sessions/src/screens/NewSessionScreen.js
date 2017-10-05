@@ -1,8 +1,8 @@
 import  React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
-import { Firebase, AppKey } from '../../Firebase'
-import { Input, CardSectionVertical, Card } from '../components/common'
-import axios from 'axios'
+import { View, Text, Button, Picker } from 'react-native';
+import { Firebase, AppKey } from '../../Firebase';
+import { Input, CardSectionVertical, Card } from '../components/common';
+import axios from 'axios';
 
 class NewSessionScreen extends Component{
   static navigationOptions = {
@@ -17,7 +17,8 @@ class NewSessionScreen extends Component{
       user:'',
       location: '',
       isLocation: false,
-      googlePlace: ''
+      googlePlace: '',
+      topic: ''
     }
   }
 
@@ -42,20 +43,25 @@ class NewSessionScreen extends Component{
       console.warn('enough for api call')
       axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}&key=${AppKey}`)
       .then((res)=>{
+        if(res.data.error_message) this.setState({ error: res.data.error_message })
+        else{
         //Sometime will return multiple items so refactor is need for listing multiple choices
-        this.setState({
-          googlePlace: res.data.results[0]
-        })        
-      })
+          this.setState({
+            googlePlace: res.data.results[0]
+          })
+        }        
+      })    
     }
   }
   
   renderGooglePlace(){
-    if(!this.state.isLocation){
+    // Janky need to be refactored
+    if(!this.state.isLocation && this.state.error === ''){
       return (
         <Text
-        onPress={()=> this.setState({ location: this.state.googlePlace.formatted_address, isLocation: true })}
-        >{this.state.googlePlace.formatted_address}</Text>
+        onPress={()=>{
+          this.setState({ location: this.state.googlePlace.formatted_address , isLocation: true })
+        }}>{this.state.googlePlace.formatted_address }</Text>      
       ) 
     }
   }
@@ -77,9 +83,14 @@ class NewSessionScreen extends Component{
             onChangeText={this.onLocationInput.bind(this)}
             value={this.state.location}
           />
-          
           {this.renderGooglePlace()}
-          
+          <Picker
+            selectedValue={this.state.topic}
+            onValueChange={(itemValue, itemIndex) => this.setState({topic: itemValue})}>
+            <Picker.Item label="Angular" value="angularjs" />
+            <Picker.Item label="React" value="reactjs" />
+            <Picker.Item label="Node" value="nodejs" />
+          </Picker>
           <Text>{this.state.error}</Text>
           <Button
             title='Create Session'
