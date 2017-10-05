@@ -31,6 +31,7 @@ class SessionsScreen extends Component{
               name={ session.name }
               description={ session.description }
               creator={ session.creator }
+              topic={ session.topic }
               />)
     })
   }
