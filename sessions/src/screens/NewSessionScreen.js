@@ -28,7 +28,7 @@ class NewSessionScreen extends Component{
     if (user){
     Firebase.database().ref()
       .child('sessions')
-      .push({name: this.state.name, description: this.state.description, googlePlace: this.state.googlePlace, location: this.state.location, creator: user.email, uid:user.uid })
+      .push({name: this.state.name, description: this.state.description, googlePlace: this.state.googlePlace, topic: this.state.topic, location: this.state.location, creator: user.email, uid:user.uid })
     this.props.navigation.navigate('Main')}
     else{
       this.props.navigation.navigate('Login')
@@ -43,6 +43,7 @@ class NewSessionScreen extends Component{
       console.warn('enough for api call')
       axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}&key=${AppKey}`)
       .then((res)=>{
+        // api limit checking.
         if(res.data.error_message) this.setState({ error: res.data.error_message })
         else{
         //Sometime will return multiple items so refactor is need for listing multiple choices
@@ -55,7 +56,7 @@ class NewSessionScreen extends Component{
   }
   
   renderGooglePlace(){
-    // Janky need to be refactored
+    // Janky need to be refactored - Way of chechking if api call limit reached
     if(!this.state.isLocation && this.state.error === ''){
       return (
         <Text
