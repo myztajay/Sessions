@@ -7,6 +7,8 @@ class SessionScreen extends Component{
   static navigationOptions = ( {navigation} )=> {
   title: 'navigation.state.params.name'
   }
+  
+  
   render(){
     const { name, description, creator } = this.props.navigation.state.params
     return(

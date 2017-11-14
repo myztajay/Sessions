@@ -1,29 +1,16 @@
 {
-  "name": "sessions",
-  "version": "0.0.1",
+  "main": "node_modules/expo/AppEntry.js",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
   "dependencies": {
-    "axios": "^0.16.2",
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "eslint-plugin-react-native": "^2.3.2",
+    "expo": "^22.0.0",
+    "react": "16.0.0-beta.5",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz",
+    "react-navigation": "^1.0.0-beta.11",
     "firebase": "^4.0.0",
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.2",
-    "react-navigation": "^1.0.0-beta.11"
+    "axios": "^0.16.2"
   },
-  "devDependencies": {
-    "babel-jest": "20.0.3",
-    "babel-preset-react-native": "1.9.2",
-    "jest": "20.0.4",
-    "react-test-renderer": "16.0.0-alpha.6"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
+  "name": "sessions",
+  "version": "0.0.0",
+  "description": "Hello Expo!",
+  "author": null
 }

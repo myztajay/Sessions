@@ -42,27 +42,32 @@ class NewSessionScreen extends Component{
     if (location.length >= 9){
       console.warn('enough for api call')
       axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}&key=${AppKey}`)
-      .then((res)=>{
+      .then((res) => {
         // api limit checking.
-        if(res.data.error_message) this.setState({ error: res.data.error_message })
-        else{
-        //Sometime will return multiple items so refactor is need for listing multiple choices
+        if(res.data.error_message) this.setState({ error: res.data.error_message });
+        else if(res.data.results[0] != undefined){
+          //Sometime will return multiple items so refactor is need for listing multiple choices
           this.setState({
-            googlePlace: res.data.results[0]
-          })
+            googlePlace: res.data.results[0],
+          });
+            console.log("this is the gooogle place in axios call if undefined we got an error  google place : " + this.state.googlePlace + "and googplace formatted addr: "+ this.state.googlePlace.formatted_address + " this is the error: " + this.state.error );
         }        
-      })    
+      });
     }
   }
   
   renderGooglePlace(){
     // Janky need to be refactored - Way of chechking if api call limit reached
+    console.log("this is the gooogle place in render : " + this.state.googlePlace.formatted_address );
     if(!this.state.isLocation && this.state.error === ''){
       return (
         <Text
         onPress={()=>{
           this.setState({ location: this.state.googlePlace.formatted_address , isLocation: true })
-        }}>{this.state.googlePlace.formatted_address }</Text>      
+        }}
+        >
+        {this.state.googlePlace.formatted_address }
+        </Text>      
       ) 
     }
   }
