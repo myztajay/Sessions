@@ -14,7 +14,7 @@ const Button = ({ label, onPress }) => {
 
 const styles = {
 	button: {
-		backgroundColor:'#3091FF',
+		backgroundColor: '#3091FF',
 		padding:10,
 		margin:10,
 		justifyContent: 'center'

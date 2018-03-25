@@ -1,8 +1,8 @@
 import  React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Button, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import map from 'lodash/map';
 import { Firebase } from '../../Firebase'
-import { CardSection, Card } from '../components/common'
+import { CardSection, Card, Button, CardSectionVertical } from '../components/common'
 import { SessionCard } from '../components/SessionCard'
 
 
@@ -38,15 +38,16 @@ class SessionsScreen extends Component{
 
   render(){
     return(
-      <View>
-        <Text> SessionsScreen</Text>
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F' }}>
+      <CardSectionVertical>
         <Button
         onPress={() => this.props.navigation.navigate('NewSession')}
-        title='Create New Session'
+        label='Create New Session'
         />
         <ScrollView>
           {this.renderSession()}
         </ScrollView>
+      </CardSectionVertical>
       </View>
     )
   }

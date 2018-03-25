@@ -19,7 +19,7 @@ const style = {
 		position: 'relative',
 		backgroundColor: '#36587F',
 		flex: 1,
-		width: '80%'
+		width: '100%'
 	}
 }
 
