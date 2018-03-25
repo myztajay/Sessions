@@ -4,7 +4,6 @@ import { TextInput, View, Text } from 'react-native'
 const Input = ({ label, underlineColorAndroid, value, onChangeText, placeholder, secureTextEntry }) => {
   return (
     <View style={styles.containerStyle}>
-      <Text style={styles.labelStyle}>{ label }</Text>
       <TextInput
         underlineColorAndroid={underlineColorAndroid}
         secureTextEntry={secureTextEntry}
@@ -13,33 +12,33 @@ const Input = ({ label, underlineColorAndroid, value, onChangeText, placeholder,
         style={styles.inputStyle}
         value={value}
         onChangeText={onChangeText}
-        style={{width:200, color: '#000000'}}
       />
+      <Text style={styles.labelStyle}>{ label }</Text>
     </View>
   )
 }
 
 const styles = {
-  inputStyle:{
-    color: '#000000',
+	inputStyle:{
+		color: '#ffffff',
     paddingRight: 5,
     paddingLeft: 5,
-    fontSize: 18,
+    fontSize: 20,
     lineHeight: 23,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 2
+    width:'100%'
   },
+
   labelStyle:{
-    fontSize: 18,
-    color:'#000000',
-
-    alignSelf: 'center'
-
+    fontSize: 20,
+		color:'#ffffff',
+    alignSelf: 'center',
   },
   containerStyle:{
-    alignItems: 'center'
+    alignItems: 'center',
+    padding:20
   }
 }
 

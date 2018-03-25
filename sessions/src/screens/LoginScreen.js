@@ -1,8 +1,8 @@
-import  React, { Component } from 'react';
+import  React, { Component } from 'react'
 import { firebase } from 'firebase'
-import { View, Text, Button} from 'react-native';
-import { Input, CardSectionVertical, Card } from '../components/common'
-import { Firebase } from '../../Firebase';
+import { View, Text } from 'react-native'
+import { Input, CardSectionVertical, Card, Button, Spinner } from '../components/common'
+import { Firebase } from '../../Firebase'
 
 
 class LoginScreen extends Component{
@@ -16,18 +16,20 @@ class LoginScreen extends Component{
       email: '',
       password: '',
       error: '',
-      authenticated: false
+      authenticated: false,
+      loading: false
     }
   }
 
   onLoginButtonPress = () => {
+    this.setState({ loading: true })
     Firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
     .then(()=>{
-      this.setState({ authenticated: true })
+      this.setState({ authenticated: true, loading: false })
       this.props.navigation.navigate('Main')
     })
     .catch((error)=>{
-      this.setState({ error: error.message })
+      this.setState({ error: error.message, loading: false })
     })
   }
 
@@ -36,30 +38,55 @@ class LoginScreen extends Component{
   }
 
   render(){
+    if(this.state.loading === true ) return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F',  }}>
+      <CardSectionVertical>
+      <Spinner />
+      </CardSectionVertical>
+      </View>
+    ) 
     return(
-      <View>
+    <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F',  }}>
         <CardSectionVertical>
+          <Text style={styles.title}>Sessions</Text>
           <Input
             label='Email'
             onChangeText={(email) => this.setState({ email })}
+            underlineColorAndroid='#ffffff'
           />
           <Input
             label="Password"
             secureTextEntry={true}
             onChangeText={(password) => this.setState({ password })}
+            underlineColorAndroid='#ffffff'
           />
           <Text>{this.state.error}</Text>
           <Button
-            title='Login'
-            onPress={this.onLoginButtonPress.bind(this)}
-          />
-          <Button
+              label='Login'
+              onPress={this.onLoginButtonPress}
+            />            
+          <Text
+            style={styles.textStyles}
             title='Register'
-            onPress={this.onRegisterButtonPress.bind(this)}
-          />
-        </CardSectionVertical>
+            onPress={this.onRegisterButtonPress}
+          >
+          or Sign Up
+          </Text>      
+       </CardSectionVertical>
       </View>
     )
+  }
+}
+
+const styles = {
+  textStyles: {
+    color: '#FFB530',
+    textAlign: 'center'
+  },
+  title: {
+    color:'#ffffff',
+    fontSize:25,
+    textAlign: 'center'
   }
 }
 

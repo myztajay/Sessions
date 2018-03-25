@@ -1,5 +1,5 @@
 import  React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Button, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Button, ScrollView, StyleSheet } from 'react-native';
 import map from 'lodash/map';
 import { Firebase } from '../../Firebase'
 import { CardSection, Card } from '../components/common'

@@ -6,3 +6,6 @@ export * from './CardSection'
 export * from './CardSectionVertical'
 export * from './Input'
 export * from './Spinner'
+export * from './Button'
+
+

@@ -22,7 +22,7 @@ const Nav = StackNavigator({
     Main: { screen: SessionNav },
     NewSession: { screen: NewSessionScreen },
     Session: { screen: SessionScreen },
-    Login: { screen: LoginScreen},
+    Login: { screen: LoginScreen },
     Register: { screen: RegisterScreen}
 })
 
