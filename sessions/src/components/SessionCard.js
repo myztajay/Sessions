@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { View, Text, Button, TouchableOpacity, Image } from 'react-native'
 import { Card, CardSection } from './common'
+import { TitleAndSub } from './TitleAndSub'
+import { TimeDateLocation } from './TimeDateLocation'
 import Translation from '../topicImages/Translation'
 
-const SessionCard = ({ nav, topic, name, description, creator }) =>{
+const SessionCard = ({ nav, topic, name, description, creator }) => {
 	const topicImage = Translation[topic]
 	return(
 		<View style={styles.sessionContainer}>
@@ -13,7 +15,8 @@ const SessionCard = ({ nav, topic, name, description, creator }) =>{
 						source={topicImage}
 						style={styles.thumbnailStyle}
 					/>
-					<Text style={styles.sessionText}>{name}</Text>
+					<TitleAndSub title={name} sub={creator} />
+					<TimeDateLocation />
 				</CardSection>
 			</TouchableOpacity>
 		</View>
@@ -23,11 +26,7 @@ const SessionCard = ({ nav, topic, name, description, creator }) =>{
 const styles={
 	sessionContainer: {
 		margin: 10,
-		flex: 1,
-	},
-	sessionText: {
 		flex: 2,
-		fontSize: 20 
 	},
 	thumbnailStyle: {
 		width:50,

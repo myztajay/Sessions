@@ -1,45 +1,46 @@
 import React from 'react'
 import { TextInput, View, Text } from 'react-native'
 
-const Input = ({ label, underlineColorAndroid, value, onChangeText, placeholder, secureTextEntry }) => {
-  return (
-    <View style={styles.containerStyle}>
-      <TextInput
-        underlineColorAndroid={underlineColorAndroid}
-        secureTextEntry={secureTextEntry}
-        placeholder={placeholder}
-        autoCorrect={false}
-        style={styles.inputStyle}
-        value={value}
-        onChangeText={onChangeText}
-      />
-      <Text style={styles.labelStyle}>{ label }</Text>
-    </View>
-  )
+const Input = ({ label, underlineColorAndroid, maxLength, value, onChangeText, placeholder, secureTextEntry }) => {
+	return (
+		<View style={styles.containerStyle}>
+			<TextInput
+				underlineColorAndroid={underlineColorAndroid}
+				secureTextEntry={secureTextEntry}
+				placeholder={placeholder}
+				autoCorrect={false}
+				style={styles.inputStyle}
+				value={value}
+				onChangeText={onChangeText}
+				maxLength={maxLength}
+			/>
+			<Text style={styles.labelStyle}>{ label }</Text>
+		</View>
+	)
 }
 
 const styles = {
 	inputStyle:{
 		color: '#ffffff',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 20,
-    lineHeight: 23,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width:'100%'
-  },
+		paddingRight: 5,
+		paddingLeft: 5,
+		fontSize: 20,
+		lineHeight: 23,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		width:'100%'
+	},
 
-  labelStyle:{
-    fontSize: 20,
+	labelStyle:{
+		fontSize: 20,
 		color:'#ffffff',
-    alignSelf: 'center',
-  },
-  containerStyle:{
-    alignItems: 'center',
-    padding:20
-  }
+		alignSelf: 'center',
+	},
+	containerStyle:{
+		alignItems: 'center',
+		padding:20
+	}
 }
 
-export { Input };
+export { Input }

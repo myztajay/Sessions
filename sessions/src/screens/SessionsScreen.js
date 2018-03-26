@@ -4,6 +4,7 @@ import map from 'lodash/map';
 import { Firebase } from '../../Firebase'
 import { CardSection, Card, Button, CardSectionVertical } from '../components/common'
 import { SessionCard } from '../components/SessionCard'
+import { TimeDateLocation } from '../components/TimeDateLocation'
 
 
 class SessionsScreen extends Component{
@@ -25,14 +26,16 @@ class SessionsScreen extends Component{
 
   renderSession(){
     return map(this.state.sessions, (session, key)=>{
-      return (<SessionCard
+      return (
+              <SessionCard
               nav={ this.props.navigation }
-              key={ session.name }
+              key={ session.id }
               name={ session.name }
               description={ session.description }
               creator={ session.creator }
               topic={ session.topic }
-              />)
+              />      
+              )
     })
   }
 
@@ -43,7 +46,7 @@ class SessionsScreen extends Component{
         <Button
         onPress={() => this.props.navigation.navigate('NewSession')}
         label='Create New Session'
-        />
+        /> 
         <ScrollView>
           {this.renderSession()}
         </ScrollView>
