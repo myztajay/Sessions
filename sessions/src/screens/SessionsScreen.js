@@ -42,15 +42,15 @@ class SessionsScreen extends Component{
   render(){
     return(
       <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F' }}>
-      <CardSectionVertical>
-        <Button
-        onPress={() => this.props.navigation.navigate('NewSession')}
-        label='Create New Session'
-        /> 
-        <ScrollView>
-          {this.renderSession()}
-        </ScrollView>
-      </CardSectionVertical>
+        <CardSectionVertical>
+          <Button
+          onPress={() => this.props.navigation.navigate('NewSession')}
+          label='Create New Session'
+          /> 
+          <ScrollView contentContainerStyle={{justifyContent:'center'}}>
+            {this.renderSession()}
+          </ScrollView>
+        </CardSectionVertical>
       </View>
     )
   }

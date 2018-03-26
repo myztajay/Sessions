@@ -12,7 +12,7 @@ class SplashScreen extends Component{
   if (Firebase.auth().currentUser) {
       this._navigateTo('Main')
   } else {
-      this._navigateTo('Login')
+      this._navigateTo('Main')
     }
   }
 

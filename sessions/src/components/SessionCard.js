@@ -25,8 +25,10 @@ const SessionCard = ({ nav, topic, name, description, creator }) => {
 
 const styles={
 	sessionContainer: {
-		margin: 10,
-		flex: 2,
+		width: '100%',
+		alignItems: 'center',
+		marginTop: '2.5%',
+		marginBottom: '2.5%'
 	},
 	thumbnailStyle: {
 		width:50,
