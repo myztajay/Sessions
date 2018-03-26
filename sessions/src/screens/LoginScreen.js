@@ -46,8 +46,7 @@ class LoginScreen extends Component{
       </View>
     ) 
     return(
-    <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F',  }}>
-        <CardSectionVertical>
+    <View style={{ flex:1, justifyContent:'center', alignItems:'center', backgroundColor: '#36587F' }}>
           <Text style={styles.title}>Sessions</Text>
           <Input
             label='Email'
@@ -72,8 +71,7 @@ class LoginScreen extends Component{
           >
           or Sign Up
           </Text>      
-       </CardSectionVertical>
-      </View>
+    </View>
     )
   }
 }

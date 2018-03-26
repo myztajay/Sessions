@@ -22,8 +22,6 @@ const Input = ({ label, underlineColorAndroid, maxLength, value, onChangeText, p
 const styles = {
 	inputStyle:{
 		color: '#ffffff',
-		paddingRight: 5,
-		paddingLeft: 5,
 		fontSize: 20,
 		lineHeight: 23,
 		flexDirection: 'column',
@@ -31,7 +29,6 @@ const styles = {
 		alignItems: 'center',
 		width:'100%'
 	},
-
 	labelStyle:{
 		fontSize: 20,
 		color:'#ffffff',
@@ -39,7 +36,8 @@ const styles = {
 	},
 	containerStyle:{
 		alignItems: 'center',
-		padding:20
+		padding:20,
+		width:'95%'
 	}
 }
 

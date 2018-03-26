@@ -79,18 +79,18 @@ class NewSessionScreen extends Component{
           <Input
             label='Name'
             onChangeText={(name) => this.setState({ name })}
-            maxLength='25'
+            maxLength={25}
           />
           <Input
             label="Description"
             onChangeText={(description) => this.setState({ description })}
-            maxLength='25'
+            maxLength={25}
           />
           <Input
             label='Location'
             onChangeText={this.onLocationInput.bind(this)}
             value={this.state.location}
-            maxLength='25'
+            maxLength={25}
           />
           {this.renderGooglePlace()}
           <Picker

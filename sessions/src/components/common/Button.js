@@ -16,6 +16,7 @@ const styles = {
 	button: {
 		backgroundColor: '#3091FF',
 		padding:10,
+		width: '95%',
 		justifyContent: 'center'
 	},
 	text: {

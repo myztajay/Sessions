@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { CardSectionVertical, CardSection } from './common'
 
-const BadgesSection = () => {
+const BadgesCard = () => {
 	return(
 		<View style={styles.mainContainer}>
 			<CardSectionVertical>
@@ -43,4 +43,4 @@ const styles = {
 		fontSize: 15
 	}
 }
-export { BadgesSection }
+export { BadgesCard }

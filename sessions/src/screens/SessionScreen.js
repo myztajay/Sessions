@@ -2,7 +2,7 @@ import  React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { CardSectionVertical } from '../components/common'
 import { SessionCard } from '../components/SessionCard'
-import { BadgesSection } from '../components/BadgesSection'
+import { BadgesCard } from '../components/BadgesCard'
 import { DescriptionCard } from '../components/DescriptionCard'
 import { MapCard } from '../components/MapCard'
 
@@ -23,7 +23,7 @@ class SessionScreen extends Component{
           creator={ creator }
           topic={ topic }
         />       
-        <BadgesSection /> 
+        <BadgesCard /> 
         <DescriptionCard description={ description } />
         <MapCard />
       </View>
