@@ -20,7 +20,7 @@ const styles = {
 		justifyContent: 'center'
 	},
 	text: {
-		color: '#ffffff',
+		color: 'white',
 		textAlign: 'center'
 	}
 }

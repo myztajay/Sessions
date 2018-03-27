@@ -35,7 +35,7 @@ class NewSessionScreen extends Component{
     }
   }
   
-  onLocationInput(location){
+  onLocationInput = (location) =>{
     this.setState({ location })
     //Trigger API call for google place if above number of characters
     // Need to store response and only do calls if location doesnt match.
@@ -74,7 +74,7 @@ class NewSessionScreen extends Component{
 
   render(){
     return(
-      <View>
+      <View style={{ flex:1, alignItems:'center', flexDirection:'column', backgroundColor: '#36587F' }}> 
         <CardSectionVertical>
           <Input
             label='Name'
@@ -88,7 +88,7 @@ class NewSessionScreen extends Component{
           />
           <Input
             label='Location'
-            onChangeText={this.onLocationInput.bind(this)}
+            onChangeText={this.onLocationInput}
             value={this.state.location}
             maxLength={25}
           />
@@ -101,11 +101,11 @@ class NewSessionScreen extends Component{
             <Picker.Item label="Node" value="nodejs" />
           </Picker>
           <Text>{this.state.error}</Text>
-          <Button
+        </CardSectionVertical>
+        <Button
             title='Create Session'
             onPress={this.onCreateButtonPress.bind(this)}
           />
-        </CardSectionVertical>
       </View>
     )
   }

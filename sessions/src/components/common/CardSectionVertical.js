@@ -13,7 +13,8 @@ const style = {
 	containerStyle: {
 		width: '95%',
 		justifyContent: 'center',
-		
+		marginTop: 5,
+		marginBottom: 5,
 		backgroundColor: 'white'
 	}
 }

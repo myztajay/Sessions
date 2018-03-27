@@ -50,11 +50,13 @@ class LoginScreen extends Component{
           <Text style={styles.title}>Sessions</Text>
           <Input
             label='Email'
+            color='white'
             onChangeText={(email) => this.setState({ email })}
             underlineColorAndroid='#ffffff'
           />
           <Input
             label="Password"
+            color="white"
             secureTextEntry={true}
             onChangeText={(password) => this.setState({ password })}
             underlineColorAndroid='#ffffff'
