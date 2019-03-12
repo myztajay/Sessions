@@ -38,7 +38,8 @@ class LoginScreen extends Component{
   }
 
   render(){
-    if(this.state.loading === true ) return (
+    const {loading}= this.state
+    if(loading === true ) return (
       <View style={{ flex:1, justifyContent:'center', alignItems:'center',  backgroundColor: '#36587F',  }}>
       <CardSectionVertical>
       <Spinner />
@@ -46,33 +47,33 @@ class LoginScreen extends Component{
       </View>
     ) 
     return(
-    <View style={{ flex:1, justifyContent:'center', alignItems:'center', backgroundColor: '#36587F' }}>
-          <Text style={styles.title}>Sessions</Text>
-          <Input
-            label='Email'
-            color='white'
-            onChangeText={(email) => this.setState({ email })}
-            underlineColorAndroid='#ffffff'
-          />
-          <Input
-            label="Password"
-            color="white"
-            secureTextEntry={true}
-            onChangeText={(password) => this.setState({ password })}
-            underlineColorAndroid='#ffffff'
-          />
-          <Text>{this.state.error}</Text>
-          <Button
-              label='Login'
-              onPress={this.onLoginButtonPress}
-            />            
-          <Text
-            style={styles.textStyles}
-            title='Register'
-            onPress={this.onRegisterButtonPress}
-          >
-          or Sign Up
-          </Text>      
+    <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+      <Text style={styles.title}>Sessions</Text>
+        <Input
+          label='Email'
+          color='black'
+          onChangeText={(email) => this.setState({email})}
+          underlineColorAndroid='#000000'
+        />
+        <Input
+          label="Password"
+          color="black"
+          secureTextEntry={true}
+          onChangeText={(password) => this.setState({password})}
+          underlineColorAndroid='#000000'
+        />
+        <Text>{this.state.error}</Text>
+        <Button
+            label='Login'
+            onPress={this.onLoginButtonPress}
+          />            
+        <Text
+          style={styles.textStyles}
+          title='Register'
+          onPress={this.onRegisterButtonPress}
+        >
+        or Sign Up
+      </Text>      
     </View>
     )
   }
