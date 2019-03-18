@@ -1,40 +1,51 @@
 // import { TabNavigator, StackNavigator } from 'react-navigation'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { SessionsScreen } from './src/screens/SessionsScreen'
-import { SessionScreen } from './src/screens/SessionScreen'
-// import { ProfileScreen } from './src/screens/ProfileScreen'
-import { SettingsScreen } from './src/screens/SettingsScreen'
-import { NewSessionScreen } from './src/screens/NewSessionScreen'
-import { LoginScreen } from './src/screens/LoginScreen'
-import { RegisterScreen } from './src/screens/RegisterScreen'
-import { SplashScreen } from './src/screens/SplashScreen'
-import React from 'react-native/Libraries/BatchedBridge/BatchedBridge'
+import {
+	createStackNavigator,
+	createBottomTabNavigator,
+	createAppContainer,
+	createSwitchNavigator
+} from 'react-navigation';
+import { SessionsScreen } from './src/screens/SessionsScreen';
+import { SessionScreen } from './src/screens/SessionScreen';
+import { ProfileScreen } from './src/screens/ProfileScreen'
+import { SettingsScreen } from './src/screens/SettingsScreen';
+import { NewSessionScreen } from './src/screens/NewSessionScreen';
+import { LoginScreen } from './src/screens/LoginScreen';
+import { RegisterScreen } from './src/screens/RegisterScreen';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
-// const SessionNav = TabNavigator({
-// 	Home: { screen: SessionsScreen },
-// 	// Profile: { screen: ProfileScreen },
-// 	Settings: { screen: SettingsScreen },
-// },{
-// 	tabBarPosition: 'bottom',
-// })
-// react-navigation
+const AuthStack = createStackNavigator({
+	SignIn: LoginScreen,
+	Register: RegisterScreen
+});
 
-const App = createStackNavigator(
+const HomeStack = createStackNavigator({
+	Main: SessionsScreen,
+	Details: SessionScreen
+});
+
+const SettingsStack = createStackNavigator({
+	Settings: SettingsScreen,
+	Profile: ProfileScreen
+});
+
+const TabNavigator = createBottomTabNavigator(
 	{
-	  Home: LoginScreen,
-	
+	Home: HomeStack,
+	Settings: SettingsStack,
 	}
 )
 
-// Nav had to be changed
-// const App = StackNavigator({
-// 	Splash: { screen: SplashScreen },
-// 	Main: { screen: SessionNav },
-// 	NewSession: { screen: NewSessionScreen },
-// 	Session: { screen: SessionScreen },
-// 	Login: { screen: LoginScreen},
-// 	Register: { screen: RegisterScreen}
-// })
 
 
-export default App 
+// Initial route goes to authentication
+const App = createAppContainer(createSwitchNavigator({
+	Auth: AuthStack,
+	Main: TabNavigator
+},{
+	//@todo switch to 'Auth' after dev
+	initialRouteName: 'Main'
+}
+));
+
+export default App;
