@@ -21,7 +21,9 @@ const AuthStack = createStackNavigator({
 
 const HomeStack = createStackNavigator({
 	Main: SessionsScreen,
-	Details: SessionScreen
+	NewSession: NewSessionScreen,
+	Details: SessionScreen,
+	
 });
 
 const SettingsStack = createStackNavigator({

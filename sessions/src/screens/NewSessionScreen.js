@@ -1,7 +1,8 @@
 import  React, { Component } from 'react';
-import { View, Text, Button, Picker } from 'react-native';
+import { View, Text, Picker } from 'react-native';
 import { Firebase, AppKey } from '../../Firebase';
-import { Input, CardSectionVertical, Card } from '../components/common';
+import { Input, CardSectionVertical, Card, Button } from '../components/common';
+import { LinearGradient } from 'expo';
 import axios from 'axios';
 
 class NewSessionScreen extends Component{
@@ -74,23 +75,28 @@ class NewSessionScreen extends Component{
 
   render(){
     return(
-      <View style={{ flex:1, alignItems:'center', flexDirection:'column', backgroundColor: '#36587F' }}> 
-        <CardSectionVertical>
+      <LinearGradient 
+      colors={[ '#4c669f', '#3b5998', '#192f6a' ]}
+      style={{ flex:1, alignItems:'center', flexDirection:'column', padding:5 }}> 
+      
           <Input
             label='Name'
             onChangeText={(name) => this.setState({ name })}
             maxLength={25}
+            color="#000000" 
           />
           <Input
             label="Description"
             onChangeText={(description) => this.setState({ description })}
             maxLength={25}
+            color="#000000" 
           />
           <Input
             label='Location'
             onChangeText={this.onLocationInput}
             value={this.state.location}
             maxLength={25}
+            color="#000000" 
           />
           {this.renderGooglePlace()}
           <Picker
@@ -101,12 +107,14 @@ class NewSessionScreen extends Component{
             <Picker.Item label="Node" value="nodejs" />
           </Picker>
           <Text>{this.state.error}</Text>
-        </CardSectionVertical>
+    
         <Button
-            title='Create Session'
+            label='Create Session'
             onPress={this.onCreateButtonPress.bind(this)}
+            backgroundColor="#ffc626" 
+            color="#000000" 
           />
-      </View>
+      </LinearGradient>
     )
   }
 }

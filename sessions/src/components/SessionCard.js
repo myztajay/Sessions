@@ -9,7 +9,7 @@ const SessionCard = ({ nav, topic, name, description, creator }) => {
 	const topicImage = Translation[topic]
 	return(
 		<View style={styles.sessionContainer}>
-			<TouchableOpacity onPress={() => nav.navigate('Session', { topic, name, description, creator })}>
+			<TouchableOpacity onPress={() => nav.navigate('Details', { topic, name, description, creator })}>
 				<CardSection>
 					<Image
 						source={topicImage}
@@ -26,9 +26,7 @@ const SessionCard = ({ nav, topic, name, description, creator }) => {
 const styles={
 	sessionContainer: {
 		width: '100%',
-		alignItems: 'center',
-		marginTop: '2.5%',
-		marginBottom: '2.5%'
+		alignItems: 'center'
 	},
 	thumbnailStyle: {
 		width:50,

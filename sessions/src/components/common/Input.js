@@ -25,7 +25,7 @@ const Input = ({ label, underlineColorAndroid, maxLength, value, onChangeText, c
 			alignSelf: 'flex-start',
 			paddingBottom:10,
 			paddingTop:10,
-			fontFamily: 'Roboto',
+			
 		},
 		containerStyle:{
 			alignItems: 'center',
