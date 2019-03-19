@@ -36,15 +36,13 @@ const TabNavigator = createBottomTabNavigator(
 	}
 )
 
-
-
 // Initial route goes to authentication
 const App = createAppContainer(createSwitchNavigator({
 	Auth: AuthStack,
 	Main: TabNavigator
 },{
 	//@todo switch to 'Auth' after dev
-	initialRouteName: 'Main'
+	initialRouteName: 'Auth',
 }
 ));
 

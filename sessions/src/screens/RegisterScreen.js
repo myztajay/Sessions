@@ -1,13 +1,16 @@
 import  React, { Component } from 'react';
 import { firebase } from 'firebase'
-import { View, Text, Button} from 'react-native';
-import { Input, CardSectionVertical, Card } from '../components/common'
+import { View, Text} from 'react-native';
+import { Input, CardSectionVertical, Card, Button } from '../components/common'
 import { Firebase } from '../../Firebase';
+import { LinearGradient } from 'expo';
 
 
 class RegisterScreen extends Component{
   static navigationOptions = {
-  title: 'Register'
+  title: 'Register',
+  headerTransparent: true,
+  headerTintColor: '#fff',
   }
 
   constructor(props){
@@ -48,29 +51,37 @@ class RegisterScreen extends Component{
 
   render(){
     return(
-      <View>
-        <CardSectionVertical>
+      <LinearGradient
+      colors={[ '#4c669f', '#3b5998', '#192f6a' ]}
+      style={{ flex: 1, padding: 15, alignItems: 'center',  justifyContent:'center' }}
+    >
+       
           <Input
             label='Email'
+            color="#000000"
             onChangeText={(email) => this.setState({ email })}
           />
           <Input
             label="Password"
             secureTextEntry={true}
+            color="#000000"
             onChangeText={(password) => this.setState({ password })}
           />
           <Input
             label="Confirm Password"
             secureTextEntry={true}
+            color="#000000"
             onChangeText={(confirmPassword) => this.setState({ confirmPassword })}
           />
           <Text>{this.state.error}</Text>
           <Button
-            title='Signup'
+            label='Signup'
             onPress={this.onButtonPress.bind(this)}
+            backgroundColor="#ffc626" 
+            color="#000000" 
           />
-        </CardSectionVertical>
-      </View>
+    
+        </LinearGradient>
     )
   }
 }
